@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhập chỉ số</title>
+</head>
+<body>
+<input type="number" id="weight">
+<label for="weight">Nhập cân nặng (kg)</label>
+<input type="number" id="height">
+<label for="height">Nhập chiều cao (m)</label>
+<button id="bmi" >BMI</button>
+<p id="result"></p>
+<p id="Interpretation"></p>
+<script>
+    document.getElementById("bmi").addEventListener("click", cal);
+    function cal()
+    {
+        let weight = parseFloat(document.getElementById("weight").value);
+        let height = parseFloat(document.getElementById("height").value);
+        let result = (weight / (height ** 2)).toFixed(2);
+        document.getElementById("result").innerHTML = "BMI là : " + result;
+        if(result < 18.5)
+        {
+            document.getElementById("Interpretation").innerHTML = "underweight";
+        }
+        else if(result <= 25.0)
+        {
+            document.getElementById("Interpretation").innerHTML = "normal";
+        }
+        else if(result < 30.0)
+        {
+            document.getElementById("Interpretation").innerHTML = "overweight";
+        }
+        else
+            {
+                document.getElementById("Interpretation").innerHTML = "obese";
+            }
+    }
+</script>
+</body>
+</html>
